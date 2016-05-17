@@ -1,0 +1,34 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app/server.js",
+    "test": "mocha **/*.spec.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "angular": "1.5.5",
+    "angular-bootstrap-npm": "0.14.3",
+    "angular-ui-router": "0.2.18",
+    "masonry-layout": "4.0.0"
+  },
+  "devDependencies": {
+    "babelify": "7.2.0",
+    "browserify": "13.0.0",
+    "chai": "3.5.0",
+    "chai-http": "2.0.1",
+    "concurrently": "2.0.0",
+    "gulp": "3.9.1",
+    "gulp-concat-css": "2.2.0",
+    "gulp-eslint": "2.0.0",
+    "gulp-nodemon": "2.0.6",
+    "gulp-watch": "4.3.5",
+    "mocha": "2.4.5",
+    "nodemon": "1.9.1",
+    "vinyl-buffer": "1.0.0",
+    "vinyl-source-stream": "1.1.0"
+  }
+}

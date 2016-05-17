@@ -1,0 +1,16 @@
+.navbar{
+  background-color: white;
+  border-color: white;
+}
+
+.log-in-form{
+  margin: 15px;
+}
+
+.log-in-form input{
+  line-height: 12px;
+}
+
+#sign-up{
+  text-align: left;
+}

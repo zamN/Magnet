@@ -1,0 +1,112 @@
+.navbar {
+  background-color: white;
+  border-color: white;
+}
+
+.log-in-form {
+  margin: 15px;
+}
+
+.log-in-form input {
+  line-height: 12px;
+}
+
+#sign-up {
+  text-align: left;
+}
+.avatar {
+  /*Development CSS*/
+  border: solid;
+  border-width: 1px;
+  padding: 10px;
+  border-color: red;
+  /*Production CSS*/
+  margin-bottom: 10px;
+}
+
+.avatar img {
+  width: 100%;
+  max-width: 300px;
+}
+
+.avatar-bio {
+  /*Development CSS*/
+  border: solid;
+  border-width: 1px;
+  padding: 10px;
+  border-color: red;
+  /*Production CSS*/
+}
+/*Logged Out*/
+
+#logo {
+  font-family: 'Pacifico';
+  /*font-family: 'Poiret One';*/
+  /*font-family: 'Unica One';*/
+  /*font-family: 'Monoton';*/
+  font-size: 4em;
+  background-color: yellow;
+  padding-right: 10px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.grid {
+  padding-left: 30px;
+}
+
+.grid-item img {
+  width: 300px;
+  height: auto;
+  padding: 5px;
+}
+
+/*Logged In*/
+
+.avatar-container {
+  /*Development CSS*/
+  border: solid;
+  border-width: 1px;
+  padding: 10px;
+  border-color: red;
+  /*Production CSS*/
+  margin-right: 10px;
+}
+
+.central-content {
+  /*Development CSS*/
+  border: solid;
+  border-width: 1px;
+  padding: 10px;
+  border-color: red;
+  /*Production CSS*/
+  margin-right: 10px;
+}
+
+.search-bar {
+  /*Development CSS*/
+  border: solid;
+  border-width: 1px;
+  padding: 10px;
+  border-color: red;
+  /*Production CSS*/
+  margin-bottom: 10px;
+}
+
+.newsfeed {
+  /*Development CSS*/
+  border: solid;
+  border-width: 1px;
+  padding: 10px;
+  border-color: red;
+  /*Production CSS*/
+}
+
+.advertisements {
+  /*Development CSS*/
+  border: solid;
+  border-width: 1px;
+  padding: 10px;
+  border-color: red;
+  /*Production CSS*/
+}
