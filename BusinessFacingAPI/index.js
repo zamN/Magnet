@@ -10,14 +10,14 @@ const port    = 3000;
 /**
  * Imported routes.
  */
-const users   = require('./app/controllers/users/user-ctrl.js')(express.Router());
+const accounts = require('./app/components/accounts/accounts-controller.js')(express.Router());
 // const   = require('.app/controllers/')
 // const   = require('.app/controllers/')
 
 /**
  * Mounted routes.
  */
-app.use('/users', users);
+app.use('/accounts', accounts);
 
 /**
  * Server listening on variable port.

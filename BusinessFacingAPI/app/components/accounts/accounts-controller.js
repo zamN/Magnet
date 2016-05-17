@@ -1,5 +1,5 @@
 "use strict";
-var Accounts = require('../../models/user/user-model.js');
+var Accounts = require('./account-model.js');
 
 /**
  * Accounts routes.
@@ -7,8 +7,8 @@ var Accounts = require('../../models/user/user-model.js');
 
 module.exports = (router) => {
 
-  router.get(function(req, res, next){
-    res.send("List of all users" )
+  router.get('/', function(req, res, next){
+    res.send("List of all zzoooos" )
   })
 
 /**
