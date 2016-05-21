@@ -8,7 +8,7 @@ var Accounts = require('./account-model.js');
 module.exports = (router) => {
 
   router.get('/', function(req, res, next){
-    res.send("List of all frogs" )
+    res.send("List of all :D" )
   })
 
 /**
