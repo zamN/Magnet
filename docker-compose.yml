@@ -9,7 +9,7 @@ services:
     ports:
      - "3000:3000"
     volumes:
-     - ./BusinessFacingAPI:/home/BusinessFacingAPI/
+     - ./BusinessFacingAPI:/home/BusinessFacingAPI
     command: bash -c "npm install && npm start"
     depends_on:
      - redis
