@@ -1,6 +1,6 @@
 "use strict";
 
-const Auth = require('../../../../Common/Authentication/models/authentication');
+const Auth = require('../../../../Common/Authentication/authentication');
 
 class Account {
   constructor(){

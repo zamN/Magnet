@@ -1,6 +1,6 @@
 "use strict";
 var Accounts    = require('../../models/account-model');
-var Auth        = require('../../../../../Common/Authentication/models/authentication');
+var Auth        = require('../../../../../Common/Authentication/authentication');
 var redisClient = require('../../../Redis/redisClient')
 
 /**
@@ -8,37 +8,29 @@ var redisClient = require('../../../Redis/redisClient')
  */
 module.exports = (router) => {
 
-  router.get('/', function(req, res, next){
+  router.post('/create', function(req, res){});
+
+  router.put('/update', function(req, res){
+    res.send('yayaya')
+  });
+
+  router.delete('/delete', function(req, res){});
+
+  router.post('/signin', function(req, res){
     redisClient.set(req.session.id, "smart monkey")
     redisClient.get(req.session.id, function(err, reply) {
       if (err) {
-        console.log('redis error' + err)
+        console.log('redis error' + err);
       }
       else {
-        res.send('fart')
+        res.send(reply);
       }
     })
-  })
+  });
 
-/**
- * Create route accepts the following parameters:
- * email, username, password
- * Route is used for creating a new account.
- */
-   router.post('/create', function(req, res) {
-     Accounts.createNew(req.body)
-    //  return success
-    // store user in redis with session id
-   });
-
-   router.get('/fat', function(req, res){
-     Auth.genPassword('fart')
-      .then((hash) => {
-        res.send(hash);
-      }, (err) => {
-        res.send(err);
-      });
-   })
+  router.get('/:name', function(req, res){
+    res.send('fart')
+  });
 
 /**
  * Return router so that it can be used by express.

@@ -6,6 +6,11 @@
 const express = require('express');
 const app     = express();
 const port    = 3000;
+const es      = require('express-session');
+const session = {
+  secret: 'keyboard cat',
+  cookie: {}
+}
 
 /**
  * Imported routes.
@@ -17,6 +22,7 @@ const accounts = require('./BusinessFacingAPIs/Services/Accounts/routes/v1/accou
 /**
  * Mounted routes.
  */
+app.use(es(session));
 app.use('/accounts', accounts);
 
 /**
