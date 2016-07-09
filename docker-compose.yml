@@ -1,23 +1,19 @@
 version: '2'
 services:
-  pg:
-    image: postgres
   redis:
     image: redis
+  cassandra:
+    image: cassandra
   backend:
-    build: ./BusinessFacingAPI
+    build: ./Apps
     ports:
      - "3000:3000"
     volumes:
-     - ./BusinessFacingAPI:/home/BusinessFacingAPI
+     - ./Apps:/home/Apps
     command: bash -c "npm install && npm start"
     depends_on:
      - redis
-     - pg
+     - cassandra
     links:
-      - pg
-      - redis
-    environment:
-      - PGHOST=pg
-      - PGDATABASE=postgres
-      - PGUSER=admin
+     - cassandra
+     - redis
