@@ -1,22 +1,23 @@
 "use strict";
 
-const Auth = require('../../../../Common/Authentication/authentication');
+const Auth      = require('../../../../Common/Authentication/authentication');
+const Promise   = require('bluebird');
+const cassandra = require('../../Cassandra/CassandraClient');
 
 class Account {
   constructor(){
 
   }
 
-  createNew(newAccountInfo){
-    // check db if accountname exists
-    // return if it exists
-    // else do the following
-    // create the user in the db
-    // return user to store in redis
-  }
-
   authenticate(identification){
 
+  }
+
+  create(account){
+    console.log(account)
+    cassandra.execute(cq.createAccount(account), (err, result) => {
+
+    });
   }
 
 }

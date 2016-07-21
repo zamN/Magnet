@@ -10,8 +10,10 @@
   "author": "ellis",
   "license": "ISC",
   "dependencies": {
+    "async": "1.5.2",
     "bcrypt": "0.8.7",
     "bluebird": "3.4.1",
+    "cassandra-driver": "3.1.1",
     "express": "4.13.4",
     "express-session": "1.13.0",
     "forever": "0.15.1",
