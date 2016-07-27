@@ -17,6 +17,7 @@ const bodyParser = require('body-parser');
  * Imported routes.
  */
 const accounts = require('./BusinessFacingAPIs/Services/Accounts/routes/v1/account-routes')(express.Router());
+const products = require('./BusinessFacingAPIs/Services/Products/routes/v1/product-routes')(express.Router());
 // const   = require('.app/controllers/')
 // const   = require('.app/controllers/')
 
@@ -26,6 +27,7 @@ const accounts = require('./BusinessFacingAPIs/Services/Accounts/routes/v1/accou
 app.use(es(session));
 app.use(bodyParser.json());
 app.use('/accounts', accounts);
+app.use('/products', products);
 
 /**
  * Server listening on variable port.
