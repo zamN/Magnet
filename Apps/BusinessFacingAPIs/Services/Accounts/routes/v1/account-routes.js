@@ -1,5 +1,5 @@
 "use strict";
-const Accounts    = require('../../models/account-model');
+const Account    = require('../../models/account-model');
 const Auth        = require('../../../../../Common/Authentication/authentication');
 const redisClient = require('../../../Redis/redisClient');
 const errors      = '';
@@ -11,30 +11,62 @@ const Promise     = require('bluebird');
 module.exports = (router) => {
 
   router.post('/v1/create', function(req, res){
-    // return Promise.try(() => {
-    //   console.log(req.body)
-    //   return
-    //   return Account.create(req.body);
-    // }).then((result) => {
-    //   res.json(result)
-    // }).catch(UsernameTaken, (err) => {
-    //   res.send(errors['usernameTaken'])
-    // })
-    res.send(req.body)
+    Account.create({}, req.body)
+      .then((result) => {
+        res.json(result)
+      }, (err) => {
+        res.json(err)
+      });
   });
 
-  router.get('/:name', function(req, res){
-    res.send('fart')
+  router.get('/v1/:name', function(req, res){
+    Account.read({}, req.params)
+      .then((result) => {
+        res.json(result);
+      }, (err) => {
+        res.json(err);
+      });
   });
 
-  router.put('/:name', function(req, res){
-    res.send('fart')
+  router.put('/v1/:name', function(req, res){
+    Account.update({}, req.body)
+      .then((result) => {
+        res.json(result);
+      }, (err) => {
+        res.json(err);
+      });
   });
 
-  router.delete('/:name', function(req, res){
-    res.send('fart')
+  router.delete('/v1/:name', function(req, res){
+    Account.delete({}, req.params)
+      .then((result) => {
+        res.json(result);
+      }, (err) => {
+        res.json(err);
+      });
   });
 
+  router.post('/v1/login', function(req, res){
+    Account.login({}, req.body)
+      .then((result) => {
+        res.json(result);
+      }, (err) => {
+        res.json(err);
+      });
+  });
+
+  router.get('/v1/logout', function(req, res){
+    Account.logout({}, req.body)
+      .then((result) => {
+        res.json(result);
+      }, (err) => {
+        res.json(err);
+      });
+  });
+
+  router.get('/v1/newPassword', function(req, res){
+
+  });
 /**
  * Return router so that it can be used by express.
  */

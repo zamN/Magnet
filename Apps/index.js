@@ -23,8 +23,8 @@ const accounts = require('./BusinessFacingAPIs/Services/Accounts/routes/v1/accou
 /**
  * Mounted routes.
  */
-app.use(bodyParser.json());
 app.use(es(session));
+app.use(bodyParser.json());
 app.use('/accounts', accounts);
 
 /**
