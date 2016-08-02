@@ -15,7 +15,6 @@ class Auth {
           reject(err);
         }
         else {
-          console.log(hash)
           resolve(hash);
         }
       });

@@ -10,15 +10,37 @@ const Promise     = require('bluebird');
  */
 module.exports = (router) => {
 
-  router.post('/v1/create', function(req, res){
-    Account.create({}, req.body)
+/**
+ *
+ */
+  router.post('/v1/authenticate', function(req, res){
+    Account.authenticate({}, req.body)
       .then((result) => {
+        // set session
         res.json(result)
       }, (err) => {
         res.json(err)
       });
   });
 
+/**
+ *
+ */
+  router.post('/v1/create', function(req, res){
+    Account.create({}, req.body)
+      .then((result) => {
+        // set session
+        console.log(result)
+        res.json(result)
+      }, (err) => {
+        console.log(err)
+        res.json(err)
+      });
+  });
+
+/**
+ *
+ */
   router.get('/v1/:name', function(req, res){
     Account.read({}, req.params)
       .then((result) => {
@@ -27,44 +49,48 @@ module.exports = (router) => {
         res.json(err);
       });
   });
-
+/**
+ *
+ */
   router.put('/v1/:name', function(req, res){
     Account.update({}, req.body)
       .then((result) => {
+        // look up the session
         res.json(result);
       }, (err) => {
         res.json(err);
       });
   });
-
+/**
+ *
+ */
   router.delete('/v1/:name', function(req, res){
     Account.delete({}, req.params)
       .then((result) => {
+        // look up the session
         res.json(result);
       }, (err) => {
         res.json(err);
       });
   });
 
-  router.post('/v1/login', function(req, res){
-    Account.login({}, req.body)
-      .then((result) => {
-        res.json(result);
-      }, (err) => {
-        res.json(err);
-      });
-  });
-
+/**
+ *
+ */
   router.get('/v1/logout', function(req, res){
     Account.logout({}, req.body)
       .then((result) => {
+        // set the session to nil
         res.json(result);
       }, (err) => {
         res.json(err);
       });
   });
 
-  router.get('/v1/newPassword', function(req, res){
+/**
+ *
+ */
+  router.get('/v1/resetPassword', function(req, res){
 
   });
 /**

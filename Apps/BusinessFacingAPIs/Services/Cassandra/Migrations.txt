@@ -4,20 +4,28 @@ CREATE KEYSPACE BusinessFacing WITH REPLICATION = { 'class' : 'NetworkTopologySt
 # CREATE Accounts
 CREATE TABLE BusinessFacing.accounts (
   name varchar PRIMARY KEY,
-  email varchar,
-  city varchar,
-  state varchar,
-  zip int,
+  password varchar,
   business_type varchar,
-  birthday timestamp
+  birthday timestamp,
+  city varchar,
+  email varchar,
+  phone_number varchar,
+  state varchar,
+  zip int
 );
-CREATE TABLE BusinessFacing.accounts ( name varchar PRIMARY KEY, email varchar, city varchar, state varchar, zip int, business_type varchar, birthday timestamp );
+
+CREATE TABLE BusinessFacing.accounts ( name varchar PRIMARY KEY, password varchar, business_type varchar, birthday timestamp, city varchar, email varchar, phone_number varchar, state varchar, zip int );
 
 # CREATE Products
 CREATE TABLE BusinessFacing.products (
-  id timeuuid PRIMARY KEY,
+  id varchar,
   account varchar,
+  productcategory varchar,
   created_on timestamp,
-  url varchar
+  url varchar,
+  price decimal,
+  quantityavailable int,
+  properties text,
+  PRIMARY KEY (account, productcategory, id)
 );
-CREATE TABLE BusinessFacing.products ( id timeuuid PRIMARY KEY, account varchar, created_on timestamp, url varchar);
+CREATE TABLE BusinessFacing.products ( id varchar, account varchar, productcategory varchar, created_on timestamp, url varchar, price decimal, quantityavailable int, properties text, PRIMARY KEY (account, productcategory, id) );

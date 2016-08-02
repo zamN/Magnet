@@ -1,5 +1,5 @@
 "use strict";
-const Product = require('../../models/product-model');
+const Analytics = require('../../models/statistics-model');
 const Promise = require('bluebird');
 
 /**
@@ -7,17 +7,9 @@ const Promise = require('bluebird');
  */
 module.exports = (router) => {
 
-  router.post('/v1/create', function(req, res){
-    Product.create({}, req.body)
-      .then((result) => {
-        res.json(result)
-      }, (err) => {
-        res.json(err)
-      });
-  });
 
-  router.get('/v1/:id', function(req, res){
-    Product.read({}, req.params)
+  router.get('/v1/:name', function(req, res){
+    Analytics.getAll({}, req.params)
       .then((result) => {
         res.json(result);
       }, (err) => {
