@@ -14,7 +14,7 @@ module.exports = (router) => {
  *
  */
   router.post('/v1/authenticate', function(req, res){
-    Account.authenticate({}, req.body)
+    Account.authenticate(req)
       .then((result) => {
         // set session
         res.json(result)
@@ -27,7 +27,7 @@ module.exports = (router) => {
  *
  */
   router.post('/v1/create', function(req, res){
-    Account.create({}, req.body)
+    Account.create(req)
       .then((result) => {
         // set session
         console.log(result)
@@ -42,7 +42,7 @@ module.exports = (router) => {
  *
  */
   router.get('/v1/:name', function(req, res){
-    Account.read({}, req.params)
+    Account.read(req.params)
       .then((result) => {
         res.json(result);
       }, (err) => {
@@ -53,7 +53,7 @@ module.exports = (router) => {
  *
  */
   router.put('/v1/:name', function(req, res){
-    Account.update({}, req.body)
+    Account.update(req)
       .then((result) => {
         // look up the session
         res.json(result);
@@ -65,7 +65,7 @@ module.exports = (router) => {
  *
  */
   router.delete('/v1/:name', function(req, res){
-    Account.delete({}, req.params)
+    Account.delete(req)
       .then((result) => {
         // look up the session
         res.json(result);
@@ -78,7 +78,7 @@ module.exports = (router) => {
  *
  */
   router.get('/v1/logout', function(req, res){
-    Account.logout({}, req.body)
+    Account.logout(req)
       .then((result) => {
         // set the session to nil
         res.json(result);

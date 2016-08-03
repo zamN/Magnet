@@ -5,8 +5,16 @@ class SessionManager {
   constructor(){
 
   }
+
   setSession(data){
-    return redisClient.setAsync(data['id'], data['body']);
+    return redisClient.setAsync(data['id'], data['body'], (err, reply) => {
+      if (err) {
+        console.log(err)
+        return err;
+      } else {
+        return reply;
+      }
+    });
   }
 
   getSession(id){

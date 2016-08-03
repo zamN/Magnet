@@ -4,12 +4,12 @@
 const redis    = require('redis');
 const bluebird = require('bluebird');
 
-// Promisify redis functions
+// Promisify redis functions.
 bluebird.promisifyAll(redis.RedisClient.prototype);
 bluebird.promisifyAll(redis.Multi.prototype);
 
-// Create Redis client
+// Create Redis client.
 const redisClient = redis.createClient({host: 'redis'});
 
-// Export redis.
+// Export Redus client.
 module.exports = redisClient;

@@ -18,9 +18,9 @@ CREATE TABLE BusinessFacing.accounts ( name varchar PRIMARY KEY, password varcha
 
 # CREATE Products
 CREATE TABLE BusinessFacing.products (
-  id varchar,
   account varchar,
   productcategory varchar,
+  id varchar,
   created_on timestamp,
   url varchar,
   price decimal,
@@ -28,4 +28,4 @@ CREATE TABLE BusinessFacing.products (
   properties text,
   PRIMARY KEY (account, productcategory, id)
 );
-CREATE TABLE BusinessFacing.products ( id varchar, account varchar, productcategory varchar, created_on timestamp, url varchar, price decimal, quantityavailable int, properties text, PRIMARY KEY (account, productcategory, id) );
+CREATE TABLE BusinessFacing.products ( account varchar, productcategory varchar, id varchar, created_on timestamp, url varchar, price decimal, quantityavailable int, properties text, PRIMARY KEY (account, productcategory, id) );
