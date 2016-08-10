@@ -31,3 +31,5 @@ class SessionManager {
     return redisClient.setAsync(id, '');
   }
 }
+
+module.exports = new SessionManager();

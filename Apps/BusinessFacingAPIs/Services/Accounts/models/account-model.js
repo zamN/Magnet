@@ -20,11 +20,13 @@ class Account {
   }
 
   create(req){
-    const query = 'INSERT INTO businessfacing.accounts (name, password, birthday, business_type, city, email, phone_number, state, zip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) IF NOT EXISTS';
+    // const query = 'INSERT INTO businessfacing.accounts (name, password, birthday, business_type, city, email, phone_number, state, zip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?) IF NOT EXISTS';
+    const query = 'INSERT INTO businessfacing.accounts (name, password, birthday, business_type, city, email, phone_number, state, zip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)';
     return Auth
      .genPassword(req.body['password'])
      .then(hashedPassword => Cassandra.executeAsync(query, [req.body['name'], hashedPassword, req.body['birthday'], req.body['business_type'], req.body['city'], req.body['email'], req.body['phone_number'], req.body['state'], req.body['zip']], { prepare: true }))
-     .then(profile => Session.setSession({id: req.session, data: profile['rows'][0]}))
+    //  .then(profile => Session.setSession({id: req.session, data: profile['rows'][0]}))
+     .then(profile => Session.setSession({id: req.session, data: 'steve'}))
      .catch(err => err);
   }
 

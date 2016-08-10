@@ -4,6 +4,7 @@ const Auth        = require('../../../../../Common/Authentication/authentication
 const redisClient = require('../../../Redis/redisClient');
 const errors      = '';
 const Promise     = require('bluebird');
+const Mailbot     = require('../../../../../Common/Email/worker/Mailbot.js');
 
 /**
  * Accounts routes.
@@ -29,9 +30,10 @@ module.exports = (router) => {
   router.post('/v1/create', function(req, res){
     Account.create(req)
       .then((result) => {
-        // set session
+        // set sessions
         console.log(result)
         res.json(result)
+        Mailbot.composeWelcomeEmail(req.body);
       }, (err) => {
         console.log(err)
         res.json(err)
