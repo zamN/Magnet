@@ -1,21 +1,20 @@
 "use strict";
 
 const Auth      = require('../../../../Common/Authentication/authentication');
+const Cassandra =  require('../../Cassandra/CassandraClient');
 const Promise   = require('bluebird');
-const Cassandra = require('../../Cassandra/CassandraClient');
 const Session   = require('../../Sessions/SessionManager');
 
 class Account {
-  constructor(){
-  }
+  constructor(){}
 
   authenticate(req) {
     const query = 'SELECT * FROM businessfacing.accounts WHERE name=?';
     const params = [req.body['name']];
     return Cassandra
      .executeAsync(query, params, { prepare: true })
-     .then(profile => Auth.verifyPassword(req.body['password'], profile))
-     .then(profile => Session.setSession({id: req.session, data: profile['rows'][0] }))
+     .then(profile => Auth.verifyPassword(req.body['password'], profile['rows'][0]['password'], profile))
+     .then(profile => Session.setSession({id: req.session, data: profile}))
      .catch(err => err)
   }
 

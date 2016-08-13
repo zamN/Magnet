@@ -17,10 +17,10 @@ module.exports = (router) => {
   router.post('/v1/authenticate', function(req, res){
     Account.authenticate(req)
       .then((result) => {
-        // set session
         res.json(result)
       }, (err) => {
         res.json(err)
+        console.trace(result)
       });
   });
 

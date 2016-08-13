@@ -21,13 +21,15 @@ class Auth {
     })
   }
 
-  verifyPassword(plainTextPassword, profile){
+  verifyPassword(plainTextPassword, hashedPassword, profile){
     return new Promise((resolve, reject) => {
-      bcrypt.compare(plainTextPassword, profile['rows'][0]['password'], function(err, bool) {
+      bcrypt.compare(plainTextPassword, hashedPassword, function(err, bool) {
         if (err) {
           reject(err);
-        }
-        else {
+        } else if (bool == false){
+          reject(new Error('Invalid Password'));
+        } else {
+          console.log('resolving profile');
           resolve(profile);
         }
       });

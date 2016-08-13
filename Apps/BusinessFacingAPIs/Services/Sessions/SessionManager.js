@@ -7,14 +7,8 @@ class SessionManager {
   }
 
   setSession(data){
-    return redisClient.setAsync(data['id'], data['body'], (err, reply) => {
-      if (err) {
-        console.log(err)
-        return err;
-      } else {
-        return reply;
-      }
-    });
+    console.log('dataaaaa', data)
+    return redisClient.setAsync(data['id'], data)
   }
 
   getSession(id){
